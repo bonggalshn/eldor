@@ -1,0 +1,52 @@
+# Unreal Engine specific
+DerivedDataCache/
+Intermediate/
+Saved/
+Script/
+*.sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+Build/
+HostDebug/
+HostRelease/
+
+# Visual Studio Code
+.vs/
+
+# Rider
+.idea/
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# UE5 specific
+*.uproject.tmp
+*.lock
+!*.uasset
+!*.umap
+
+# Compiled files
+*.pdb
+*.exe
+*.dll
+*.dylib
+
+# Log files
+*.log
+
+# Environment
+.env*
+*.env
+
+# IDE
+.vscode/
+*.swp
+*.swo
+*~
