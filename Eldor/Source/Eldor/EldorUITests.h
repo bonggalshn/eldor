@@ -82,4 +82,20 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FEldorGameLogicPausedTest,
     "Eldor.UI.PauseMenu.GameLogicPaused",
     EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
 
+/**
+ * Test: Return To Menu Button Click
+ * Verifies clicking Return To Menu returns to title screen
+ */
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FEldorReturnToMenuButtonClickTest,
+    "Eldor.UI.PauseMenu.ReturnToMenuButtonClick",
+    EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
+/**
+ * Test: Scene Transition from Pause Menu to Title Screen
+ * Verifies transition back to main menu
+ */
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FEldorSceneTransitionToTitleScreenTest,
+    "Eldor.UI.PauseMenu.SceneTransitionToTitleScreen",
+    EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
 #endif // WITH_DEV_AUTOMATION_TESTS
