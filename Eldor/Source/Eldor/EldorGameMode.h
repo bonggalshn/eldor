@@ -4,6 +4,8 @@
 #include "GameFramework/GameModeBase.h"
 #include "EldorGameMode.generated.h"
 
+class APlayerController;
+
 /**
  * EldorGameMode
  * Main game mode for Eldor RPG title screen
@@ -24,4 +26,5 @@ protected:
 private:
     void ShowTitleScreen();
     void InitializeLogging();
+    void CreateFallbackTitleScreen(APlayerController* PC);
 };
