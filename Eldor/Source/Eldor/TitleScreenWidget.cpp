@@ -3,6 +3,7 @@
 #include "Components/Button.h"
 #include "Logging/LogMacros.h"
 #include "EldorGameInstance.h"
+#include "Kismet/GameplayStatics.h"
 
 UTitleScreenWidget::UTitleScreenWidget(const FObjectInitializer& ObjectInitializer)
     : Super(ObjectInitializer)
@@ -13,11 +14,12 @@ UTitleScreenWidget::UTitleScreenWidget(const FObjectInitializer& ObjectInitializ
 void UTitleScreenWidget::NativeConstruct()
 {
     Super::NativeConstruct();
-    
+
     UE_LOG(LogEldorGame, Log, TEXT("TitleScreenWidget: NativeConstruct - Initializing title screen"));
-    
+
     InitializeTitleText();
     BindExitButton();
+    BindNewGameButton();
 }
 
 void UTitleScreenWidget::NativeDestruct()
@@ -87,5 +89,34 @@ void UTitleScreenWidget::BindExitButton()
     else
     {
         UE_LOG(LogEldorGame, Warning, TEXT("TitleScreenWidget: ExitButton binding not found"));
+    }
+}
+
+void UTitleScreenWidget::OnNewGameButtonClicked()
+{
+    UE_LOG(LogEldorGame, Log, TEXT("TitleScreenWidget: New Game button clicked - initiating world transition"));
+
+    if (UGameInstance* GameInstance = GetGameInstance())
+    {
+        if (UEldorGameInstance* EldorGI = Cast<UEldorGameInstance>(GameInstance))
+        {
+            EldorGI->SetCurrentGameMode(EGameMode::Playing);
+        }
+    }
+
+    UE_LOG(LogEldorGame, Log, TEXT("TitleScreenWidget: Loading World level"));
+    UGameplayStatics::OpenLevel(this, FName(TEXT("World")), true);
+}
+
+void UTitleScreenWidget::BindNewGameButton()
+{
+    if (NewGameButton)
+    {
+        NewGameButton->OnClicked.AddDynamic(this, &UTitleScreenWidget::OnNewGameButtonClicked);
+        UE_LOG(LogEldorGame, Log, TEXT("TitleScreenWidget: NewGameButton click handler bound"));
+    }
+    else
+    {
+        UE_LOG(LogEldorGame, Warning, TEXT("TitleScreenWidget: NewGameButton binding not found"));
     }
 }

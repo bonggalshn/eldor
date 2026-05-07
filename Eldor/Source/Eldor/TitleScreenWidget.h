@@ -36,11 +36,18 @@ protected:
     UPROPERTY(BlueprintReadOnly, Category="TitleScreen", meta=(BindWidgetOptional))
     UButton* ExitButton;
 
+    UPROPERTY(BlueprintReadOnly, Category="TitleScreen", meta=(BindWidgetOptional))
+    UButton* NewGameButton;
+
     UFUNCTION(BlueprintCallable, Category="TitleScreen")
     virtual void OnExitButtonClicked();
+
+    UFUNCTION(BlueprintCallable, Category="TitleScreen")
+    virtual void OnNewGameButtonClicked();
 
 private:
     bool bExitHandled;
     void InitializeTitleText();
     void BindExitButton();
+    void BindNewGameButton();
 };

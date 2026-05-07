@@ -42,4 +42,28 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FEldorWindowCloseTest,
     "Eldor.UI.TitleScreen.WindowClose",
     EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
 
+/**
+ * Test: New Game Button Visibility
+ * Verifies NewGame button is present on title screen
+ */
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FEldorNewGameButtonVisibilityTest,
+    "Eldor.UI.TitleScreen.NewGameButtonVisibility",
+    EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
+/**
+ * Test: New Game Button Click
+ * Verifies clicking NewGame button initiates level transition to World
+ */
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FEldorNewGameButtonClickTest,
+    "Eldor.UI.TitleScreen.NewGameButtonClick",
+    EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
+/**
+ * Test: Scene Transition to World
+ * Verifies transition from TitleScreen to World scene
+ */
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FEldorSceneTransitionToWorldTest,
+    "Eldor.UI.TitleScreen.SceneTransitionToWorld",
+    EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
 #endif // WITH_DEV_AUTOMATION_TESTS

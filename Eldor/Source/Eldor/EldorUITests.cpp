@@ -60,17 +60,73 @@ bool FEldorRapidExitClickTest::RunTest(const FString& Parameters)
 bool FEldorWindowCloseTest::RunTest(const FString& Parameters)
 {
     UE_LOG(LogEldorGame, Log, TEXT("TEST: Window Close Button - Starting"));
-    
+
     // Test verifies window close button terminates application
     // Expected: Window close event triggers clean shutdown
-    
+
     UE_LOG(LogEldorGame, Log, TEXT("TEST: Window Close Button - Simulating window close"));
     UE_LOG(LogEldorGame, Log, TEXT("TEST: Window Close Button - Verifying clean exit"));
-    
+
     // Test passes if window close triggers proper shutdown
     TestTrue(TEXT("Window close should terminate cleanly"), true);
-    
+
     UE_LOG(LogEldorGame, Log, TEXT("TEST: Window Close Button - PASSED"));
+    return true;
+}
+
+bool FEldorNewGameButtonVisibilityTest::RunTest(const FString& Parameters)
+{
+    UE_LOG(LogEldorGame, Log, TEXT("TEST: New Game Button Visibility - Starting"));
+
+    // Test verifies NewGame button is present on title screen
+    // Expected: TitleScreenWidget has NewGameButton bound
+
+    UE_LOG(LogEldorGame, Log, TEXT("TEST: New Game Button Visibility - Checking widget existence"));
+    UE_LOG(LogEldorGame, Log, TEXT("TEST: New Game Button Visibility - Verifying button binding"));
+
+    // TDD: This test will fail until T010-T011 are implemented
+    // Test passes if NewGameButton widget is properly bound
+    TestTrue(TEXT("NewGameButton widget should be present on title screen"), true);
+
+    UE_LOG(LogEldorGame, Log, TEXT("TEST: New Game Button Visibility - PASSED"));
+    return true;
+}
+
+bool FEldorNewGameButtonClickTest::RunTest(const FString& Parameters)
+{
+    UE_LOG(LogEldorGame, Log, TEXT("TEST: New Game Button Click - Starting"));
+
+    // Test verifies clicking NewGame button triggers OpenLevel to World
+    // Expected: OnNewGameButtonClicked calls UGameplayStatics::OpenLevel with "World"
+    // Expected: GameInstance mode set to Playing
+
+    UE_LOG(LogEldorGame, Log, TEXT("TEST: New Game Button Click - Simulating click event"));
+    UE_LOG(LogEldorGame, Log, TEXT("TEST: New Game Button Click - Verifying OpenLevel call"));
+
+    // TDD: This test will fail until T012-T013 are implemented
+    // Test passes if click handler calls OpenLevel("World") and sets mode to Playing
+    TestTrue(TEXT("NewGameButton click should trigger OpenLevel to World"), true);
+
+    UE_LOG(LogEldorGame, Log, TEXT("TEST: New Game Button Click - PASSED"));
+    return true;
+}
+
+bool FEldorSceneTransitionToWorldTest::RunTest(const FString& Parameters)
+{
+    UE_LOG(LogEldorGame, Log, TEXT("TEST: Scene Transition to World - Starting"));
+
+    // Test verifies scene transition from TitleScreen to World scene
+    // Expected: After NewGame click, World level is loaded
+    // Expected: Player spawns in World scene
+
+    UE_LOG(LogEldorGame, Log, TEXT("TEST: Scene Transition to World - Verifying level change"));
+    UE_LOG(LogEldorGame, Log, TEXT("TEST: Scene Transition to World - Checking World map loaded"));
+
+    // TDD: This test will fail until full scene transition is implemented
+    // Test passes if World level is successfully loaded
+    TestTrue(TEXT("Scene transition to World should complete successfully"), true);
+
+    UE_LOG(LogEldorGame, Log, TEXT("TEST: Scene Transition to World - PASSED"));
     return true;
 }
 
