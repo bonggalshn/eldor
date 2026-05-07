@@ -6,9 +6,6 @@
 #include "HAL/IPlatformInputStreamableManager.h"
 
 UEldorGameInstance::UEldorGameInstance()
-    : Super()
-    , bIsExiting(false)
-    , InitializationStartTime(0.0)
 {
 }
 
@@ -16,6 +13,7 @@ void UEldorGameInstance::Init()
 {
     Super::Init();
     InitializationStartTime = FPlatformTime::Seconds();
+    InitializeGameState();
     InitializeLogging();
     TrackStartupTime();
     UE_LOG(LogEldorGame, Log, TEXT("EldorGameInstance initialized successfully"));
@@ -78,4 +76,34 @@ void UEldorGameInstance::HandleWindowClose()
 {
     UE_LOG(LogEldorGame, Log, TEXT("Window close event received - initiating clean shutdown"));
     RequestExit();
+}
+
+void UEldorGameInstance::SetCurrentGameMode(EGameMode NewMode)
+{
+    EGameMode OldMode = CurrentGameMode;
+    CurrentGameMode = NewMode;
+
+    FString OldModeStr;
+    switch (OldMode)
+    {
+        case EGameMode::MainMenu: OldModeStr = TEXT("MainMenu"); break;
+        case EGameMode::Playing: OldModeStr = TEXT("Playing"); break;
+        case EGameMode::Paused: OldModeStr = TEXT("Paused"); break;
+    }
+
+    FString NewModeStr;
+    switch (NewMode)
+    {
+        case EGameMode::MainMenu: NewModeStr = TEXT("MainMenu"); break;
+        case EGameMode::Playing: NewModeStr = TEXT("Playing"); break;
+        case EGameMode::Paused: NewModeStr = TEXT("Paused"); break;
+    }
+
+    UE_LOG(LogEldorGame, Log, TEXT("GameMode changed: %s -> %s"), *OldModeStr, *NewModeStr);
+}
+
+void UEldorGameInstance::InitializeGameState()
+{
+    CurrentGameMode = EGameMode::MainMenu;
+    UE_LOG(LogEldorGame, Log, TEXT("Game state initialized to MainMenu mode"));
 }

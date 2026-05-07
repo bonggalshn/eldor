@@ -23,24 +23,31 @@ public:
     virtual void NativeConstruct() override;
     virtual void NativeDestruct() override;
 
-    UFUNCTION(BlueprintCallable, Category="TitleScreen")
+    UFUNCTION(BlueprintCallable, Category = "TitleScreen")
     void SetTitleText(FString NewTitle);
 
-    UFUNCTION(BlueprintCallable, Category="TitleScreen")
+    UFUNCTION(BlueprintCallable, Category = "TitleScreen")
     FString GetTitleText() const;
 
 protected:
-    UPROPERTY(BlueprintReadOnly, Category="TitleScreen", meta=(BindWidgetOptional))
-    UTextBlock* TitleText;
+    UPROPERTY(BlueprintReadOnly, Category = "TitleScreen", meta = (BindWidgetOptional))
+    TObjectPtr<UTextBlock> TitleText;
 
-    UPROPERTY(BlueprintReadOnly, Category="TitleScreen", meta=(BindWidgetOptional))
-    UButton* ExitButton;
+    UPROPERTY(BlueprintReadOnly, Category = "TitleScreen", meta = (BindWidgetOptional))
+    TObjectPtr<UButton> ExitButton;
 
-    UFUNCTION(BlueprintCallable, Category="TitleScreen")
+    UPROPERTY(BlueprintReadOnly, Category = "TitleScreen", meta = (BindWidgetOptional))
+    TObjectPtr<UButton> NewGameButton;
+
+    UFUNCTION(BlueprintCallable, Category = "TitleScreen")
     virtual void OnExitButtonClicked();
 
+    UFUNCTION(BlueprintCallable, Category = "TitleScreen")
+    virtual void OnNewGameButtonClicked();
+
 private:
-    bool bExitHandled;
+    bool bExitHandled = false;
     void InitializeTitleText();
     void BindExitButton();
+    void BindNewGameButton();
 };

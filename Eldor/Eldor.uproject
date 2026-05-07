@@ -1,21 +1,17 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "5.4",
+	"EngineAssociation": "5.7",
 	"Category": "Samples",
 	"Description": "Eldor - Open World RPG Game",
 	"Modules": [
 		{
 			"Name": "Eldor",
-			"Type": "Game",
-			"LoadingPhase": "Default",
-			"AdditionalDependencies": [
-				"Engine"
-			]
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
 		}
 	],
 	"TargetPlatforms": [
 		"Windows",
 		"WindowsEditor"
-	],
-	"EpicSampleNameHash": "1234567890"
+	]
 }

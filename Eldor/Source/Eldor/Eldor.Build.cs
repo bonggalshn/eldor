@@ -41,9 +41,8 @@ public class Eldor : ModuleRules
         );
 
         // Testing support (TDD per Constitution III)
-        if (Target.bBuildTests || Target.bCompileAgainstEngine)
+        if (Target.bCompileAgainstEngine)
         {
-            PrivateDependencyModuleNames.Add("AutomationLauncher");
             PrivateDependencyModuleNames.Add("AutomationTest");
         }
 
