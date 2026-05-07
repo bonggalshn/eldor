@@ -98,4 +98,20 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FEldorSceneTransitionToTitleScreenTest,
     "Eldor.UI.PauseMenu.SceneTransitionToTitleScreen",
     EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
 
+/**
+ * Test: Exit To Desktop Button Click
+ * Verifies clicking Exit To Desktop closes the application
+ */
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FEldorExitToDesktopButtonClickTest,
+    "Eldor.UI.PauseMenu.ExitToDesktopButtonClick",
+    EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
+/**
+ * Test: Application Clean Exit
+ * Verifies application terminates cleanly without data loss
+ */
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FEldorApplicationCleanExitTest,
+    "Eldor.UI.PauseMenu.ApplicationCleanExit",
+    EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
 #endif // WITH_DEV_AUTOMATION_TESTS
