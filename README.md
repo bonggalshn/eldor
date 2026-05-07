@@ -1,0 +1,3 @@
+# Eldor
+
+In the world of Eldor, ancient kingdoms stand on the ruins of a forgotten age where gods once walked among mortals and magic flowed freely through the land. Now the realms are fractured. Elven houses retreat into sacred forests, dwarven clans guard dying mountain cities, and orc warlords carve their empires across the wild frontier. Dark creatures rise from ancient depths, forbidden magic spreads corruption across the kingdoms, and every decision made by the player shapes the fate of nations, alliances, and the balance between order and chaos. In Eldor, heroes are not chosen by prophecy. They are forged through survival.
