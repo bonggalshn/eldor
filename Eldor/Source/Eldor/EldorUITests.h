@@ -66,4 +66,20 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FEldorSceneTransitionToWorldTest,
     "Eldor.UI.TitleScreen.SceneTransitionToWorld",
     EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
 
+/**
+ * Test: Pause Menu Visibility on Escape
+ * Verifies pressing Escape during gameplay shows pause menu overlay
+ */
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FEldorPauseMenuVisibilityTest,
+    "Eldor.UI.PauseMenu.VisibilityOnEscape",
+    EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
+/**
+ * Test: Game Logic Paused When Menu Shown
+ * Verifies all game logic freezes when pause menu is displayed
+ */
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FEldorGameLogicPausedTest,
+    "Eldor.UI.PauseMenu.GameLogicPaused",
+    EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::ProductFilter)
+
 #endif // WITH_DEV_AUTOMATION_TESTS
