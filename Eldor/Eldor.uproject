@@ -6,16 +6,12 @@
 	"Modules": [
 		{
 			"Name": "Eldor",
-			"Type": "Game",
-			"LoadingPhase": "Default",
-			"AdditionalDependencies": [
-				"Engine"
-			]
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
 		}
 	],
 	"TargetPlatforms": [
 		"Windows",
 		"WindowsEditor"
-	],
-	"EpicSampleNameHash": "1234567890"
+	]
 }

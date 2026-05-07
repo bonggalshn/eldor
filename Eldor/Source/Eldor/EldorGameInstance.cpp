@@ -6,10 +6,6 @@
 #include "HAL/IPlatformInputStreamableManager.h"
 
 UEldorGameInstance::UEldorGameInstance()
-    : Super()
-    , bIsExiting(false)
-    , InitializationStartTime(0.0)
-    , CurrentGameMode(EGameMode::MainMenu)
 {
 }
 

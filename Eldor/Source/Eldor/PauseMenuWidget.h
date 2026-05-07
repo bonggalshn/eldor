@@ -22,23 +22,23 @@ public:
     virtual void NativeConstruct() override;
     virtual void NativeDestruct() override;
 
-    UFUNCTION(BlueprintCallable, Category="PauseMenu")
+    UFUNCTION(BlueprintCallable, Category = "PauseMenu")
     void ShowMenu();
 
-    UFUNCTION(BlueprintCallable, Category="PauseMenu")
+    UFUNCTION(BlueprintCallable, Category = "PauseMenu")
     void HideMenu();
 
 protected:
-    UPROPERTY(BlueprintReadOnly, Category="PauseMenu", meta=(BindWidgetOptional))
-    UButton* ReturnToMenuButton;
+    UPROPERTY(BlueprintReadOnly, Category = "PauseMenu", meta = (BindWidgetOptional))
+    TObjectPtr<UButton> ReturnToMenuButton;
 
-    UPROPERTY(BlueprintReadOnly, Category="PauseMenu", meta=(BindWidgetOptional))
-    UButton* ExitToDesktopButton;
+    UPROPERTY(BlueprintReadOnly, Category = "PauseMenu", meta = (BindWidgetOptional))
+    TObjectPtr<UButton> ExitToDesktopButton;
 
-    UFUNCTION(BlueprintCallable, Category="PauseMenu")
+    UFUNCTION(BlueprintCallable, Category = "PauseMenu")
     virtual void OnReturnToMenuClicked();
 
-    UFUNCTION(BlueprintCallable, Category="PauseMenu")
+    UFUNCTION(BlueprintCallable, Category = "PauseMenu")
     virtual void OnExitToDesktopClicked();
 
 private:

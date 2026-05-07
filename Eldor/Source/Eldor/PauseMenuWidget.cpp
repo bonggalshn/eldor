@@ -1,10 +1,8 @@
 #include "PauseMenuWidget.h"
 #include "Components/Button.h"
-#include "Components/WidgetSwitcher.h"
 #include "Logging/LogMacros.h"
 #include "EldorGameInstance.h"
 #include "Kismet/GameplayStatics.h"
-#include "Kismet/KismetSystemLibrary.h"
 
 UPauseMenuWidget::UPauseMenuWidget(const FObjectInitializer& ObjectInitializer)
     : Super(ObjectInitializer)

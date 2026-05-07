@@ -21,14 +21,15 @@ public:
 protected:
     virtual void SetupInputComponent() override;
 
+    UFUNCTION()
     void TogglePauseMenu();
 
 private:
-    UPROPERTY(EditDefaultsOnly, Category="UI")
+    UPROPERTY(EditDefaultsOnly, Category = "UI")
     TSubclassOf<UPauseMenuWidget> PauseMenuWidgetClass;
 
     UPROPERTY()
-    UPauseMenuWidget* PauseMenuWidgetInstance;
+    TObjectPtr<UPauseMenuWidget> PauseMenuWidgetInstance;
 
-    bool bIsPauseMenuVisible;
+    bool bIsPauseMenuVisible = false;
 };

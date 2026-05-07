@@ -34,11 +34,19 @@ public:
     virtual bool JoinSession(ULocalPlayer* Player, const FString& SessionName) override;
     virtual void HandleDemoPlay() override;
 
+    UFUNCTION()
     void RequestExit();
+
+    UFUNCTION()
     bool IsExiting() const { return bIsExiting; }
+
+    UFUNCTION()
     void HandleWindowClose();
 
+    UFUNCTION(BlueprintCallable, Category = "GameMode")
     EGameMode GetCurrentGameMode() const { return CurrentGameMode; }
+
+    UFUNCTION(BlueprintCallable, Category = "GameMode")
     void SetCurrentGameMode(EGameMode NewMode);
 
     UFUNCTION(BlueprintCallable, Category = "GameMode")
@@ -57,13 +65,9 @@ private:
     void InitializeLogging();
     void TrackStartupTime();
 
-    bool bIsExiting;
-    double InitializationStartTime;
+    bool bIsExiting = false;
+    double InitializationStartTime = 0.0;
 
     UPROPERTY()
-    EGameMode CurrentGameMode;
+    TEnumAsByte<EGameMode> CurrentGameMode;
 };
-
-#if !defined(ELDOR_GAMEINSTANCE_API)
-#define ELDOR_GAMEINSTANCE_API DLLEXPORT
-#endif

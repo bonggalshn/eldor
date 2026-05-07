@@ -49,10 +49,10 @@ void AEldorPlayerController::TogglePauseMenu()
     if (bIsPauseMenuVisible)
     {
         UE_LOG(LogEldorGame, Log, TEXT("EldorPlayerController: Hiding pause menu"));
-        if (PauseMenuWidgetInstance)
+        if (PauseMenuWidgetInstance.IsValid())
         {
             PauseMenuWidgetInstance->HideMenu();
-            PauseMenuWidgetInstance = nullptr;
+            PauseMenuWidgetInstance.Reset();
         }
         bIsPauseMenuVisible = false;
     }
@@ -66,12 +66,12 @@ void AEldorPlayerController::TogglePauseMenu()
             return;
         }
 
-        if (!PauseMenuWidgetInstance)
+        if (!PauseMenuWidgetInstance.IsValid())
         {
             PauseMenuWidgetInstance = CreateWidget<UPauseMenuWidget>(this, PauseMenuWidgetClass);
         }
 
-        if (PauseMenuWidgetInstance)
+        if (PauseMenuWidgetInstance.IsValid())
         {
             PauseMenuWidgetInstance->ShowMenu();
             bIsPauseMenuVisible = true;
