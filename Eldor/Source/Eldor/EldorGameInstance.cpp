@@ -2,6 +2,8 @@
 #include "Logging/LogMacros.h"
 #include "Misc/OutputDevice.h"
 #include "GenericPlatform/GenericPlatformProcess.h"
+#include "Engine/Engine.h"
+#include "HAL/IPlatformInputStreamableManager.h"
 
 UEldorGameInstance::UEldorGameInstance()
     : Super()
@@ -70,4 +72,10 @@ void UEldorGameInstance::TrackStartupTime()
     {
         UE_LOG(LogEldorGame, Warning, TEXT("Startup time exceeded 3 second target: %.3f seconds"), StartupTime);
     }
+}
+
+void UEldorGameInstance::HandleWindowClose()
+{
+    UE_LOG(LogEldorGame, Log, TEXT("Window close event received - initiating clean shutdown"));
+    RequestExit();
 }

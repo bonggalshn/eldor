@@ -24,6 +24,7 @@ public:
 
     void RequestExit();
     bool IsExiting() const { return bIsExiting; }
+    void HandleWindowClose();
 
 private:
     void InitializeLogging();
