@@ -1,0 +1,21 @@
+# World Map
+
+This is a placeholder file for the World.umap Unreal Engine map asset.
+
+## Creating the Actual Map
+
+To create the actual World.umap file:
+
+1. Open `code-base/eldor/Eldor/Eldor.uproject` in Unreal Engine 5.4+
+2. Create a new Level: File > New Level > Empty Level
+3. Save the level: File > Save Current As > name it "World"
+4. The file will be saved to: `code-base/eldor/Eldor/Content/Maps/World.umap`
+
+## Map Requirements
+
+For this MVP, the World map should be:
+- An empty playable level
+- Contains a PlayerStart actor for spawning the player
+- No gameplay mechanics (to be implemented in future features)
+- Basic lighting and skybox (use default settings)
+- Can optionally add a simple ground plane for visual reference
